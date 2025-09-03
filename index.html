@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
     <title>To Do List</title>
 </head>
 
@@ -64,6 +65,14 @@
                 li.appendChild(deleteBtn);
                 taskList.appendChild(li);
             });
+        }
+    </script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js")
+            .then(reg => console.log("Service Worker registrado", reg))
+            .catch(err => console.log("Error al registrar Service Worker", err));
         }
     </script>
 </body>
